@@ -10,12 +10,6 @@ pipeline {
     dockerImage = ''
   }
   stages {
-    stage("SCM Checkout") {
-      steps {
-        echo "test ${params.branch}"
-        git url: 'https://github.com/Ashok-Java-ui/reports.git', branch: "${params.branch}"
-      }
-    }
     stage("Generating .war file for vmauth") {
       steps {
         bat 'mvn clean install'
