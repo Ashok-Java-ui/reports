@@ -46,8 +46,6 @@ properties([
                     sandbox: false, 
                     script: 
                         ''' if (Env.equals("Dev")){
-                       def gettags = ("git ls-remote -t -h git@github.com:org/repo.git").execute()
-
                            return["devaaa001","devaaa002","devbbb001","devbbb002","devccc001","devccc002"]
                             }
                             else if(Env.equals("QA")){
