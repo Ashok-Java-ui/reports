@@ -46,10 +46,11 @@ properties([
                     sandbox: false, 
                     script: 
                         ''' if (Env.equals("Dev")){
-                        def gettags = ("git ls-remote --heads scm.getUserRemoteConfigs()[0].getUrl()").execute()
-return gettags.text.readLines().collect {
+                       def gettags = ("git ls-remote -t -h git@github.com:org/repo.git").execute()
+return gettags.text.readLines().collect { 
   it.split()[1].replaceAll('refs/heads/', '').replaceAll('refs/tags/', '').replaceAll("\\^\\{\\}", '')
-                               // return["devaaa001","devaaa002","devbbb001","devbbb002","devccc001","devccc002"]
+}
+                           // return["devaaa001","devaaa002","devbbb001","devbbb002","devccc001","devccc002"]
                             }
                             else if(Env.equals("QA")){
                                 return["qaaaa001","qabbb002","qaccc003"]
