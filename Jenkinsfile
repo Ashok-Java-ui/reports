@@ -46,7 +46,7 @@ properties([
                     sandbox: false, 
                     script: 
                         ''' if (Env.equals("Dev")){
-                           return["devaaa001","devaaa002","devbbb001","devbbb002","devccc001","devccc002"]
+                               return["devaaa001","devaaa002","devbbb001","devbbb002","devccc001","devccc002"]
                             }
                             else if(Env.equals("QA")){
                                 return["qaaaa001","qabbb002","qaccc003"]
